@@ -1,11 +1,14 @@
 class EffectObject extends SpriteObject {
 	
-	let image = "X"
-	let pointValue;
-
-	// Returns an object that will be applied to main player object
-	effect () {
+	constructor (image,pointValue) {
+		super (image);
+		this.pointValue = 0;
 		
+		//effect would be public. 
+		//Upon striking an effect object it reads its effect.
+		this.effect = { 
+			scale: 1,
+			speed: 1,
+		}
 	}
-	
 }

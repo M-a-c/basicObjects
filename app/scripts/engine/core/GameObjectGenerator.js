@@ -14,9 +14,10 @@ class GameObjectGenerator {
 	// Returns an initialized spriteObject randomly
 	nextObject () {
 		// Get a random number within the domain of the types list
-		let rand = Math.floor ( rand () * this.types.length );
+		//let rand = Math.floor ( Math.random () * this.types.length );
 		// Return a random object
-		return window [ this.types [ rand ] ];
+		return new MagnifyEffect ();
+		// return window [ this.types [ rand ] ];
 	}
 	
 }

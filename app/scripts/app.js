@@ -9,8 +9,9 @@ function initialize () {
 	// Initialize our world and add it to our application
 	let world = new World ();
 	app.stage.addChild ( world );
-	// Run the world
-	world.run ();
+	// Initialize the world, and then run it
+	world.initialize ();
+	world.run ( app.ticker );
 
 	// let you = PIXI.Sprite.fromImage ("images/bee.svg");
 	// you.anchor.set ( 0.5, 0.5 );
