@@ -1,15 +1,19 @@
-class SpriteObject extends PIXI.Sprite {
+class SpriteObject {
 	
-	constructor(image ? : "X" ) {
-		
+	//image ? : "X" 
+	constructor ( imageURL = "../../../assets/images/bee.png" ) {
+		this.sprite = PIXI.Sprite.fromImage ( imageURL );
 	}
 
-	let image = "X"
-
 	// Updates the position
-	update ( globalModifiers ) {
-		globalModifiers.scale;
-        globalModifiers.velocity;
+	update ( ) {
+		
     }
+
+//// Updates the position
+//	update ( globalModifiers ) {
+// 		globalModifiers.scale;
+//  	globalModifiers.velocity;
+//   }
 
 }

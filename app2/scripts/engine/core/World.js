@@ -1,6 +1,6 @@
 class World extends PIXI.Container {
 	
-	constructor () {
+	constructor ( ticker ) {
 		// Call the super constructor
 		super ();
 		// Initialize the game object generator, and register classes
@@ -16,38 +16,40 @@ class World extends PIXI.Container {
 			// Request a random object from the generator
 			let randomObject = this.generator.nextObject ();
 			// Set object properties
-			
-			// Set object x y velocity randomly
-			// renderer.view.style.width
-			
+			randomObject.y = 800;
+			randomObject.x = Math.floor ( 1024 * Math.random () );
+			randomObject.sprite.vx = 0;
+			randomObject.sprite.vy = -0.2;
 			// Add said object to main container
-			this.addChild ( randomObject );
+			this.addChild ( randomObject.sprite );
 		}
 	}
 	
 	// Loops through all sprite objects and updates them, update timer based on timestamp
 	update () {
 		// Walk through all the children and call the update function
-		this.children.map ( ( child ) => { child.update (); } ); 
+		// this.children.map ( ( child ) => { child.update (); } ); 
+		this.children.map ( ( child ) => {
+			child.y += child.vy;
+			child.x += child.vx;
+		});
 	}
 	
-	// Loops through contents of container and renders them
-	render () {
-		// this.children.map ( ( child ) => { child.render (screen); } )
-	}
-
 	// Loops through and checks for collisions with target, returns collision list
 	collision ( target ) {
 		
 	}
 
 	// Contains main game loop
-	run () {
+	run ( ticker ) {
+		// Save reference to this
+		let that = this;
 		// Update and render onto the canvas
-		this.update ();
-		this.render ();
+		ticker.add ( function ( delta ) {
+			that.update ();
+		});
 		// Render next frame when available
-		window.requestAnimationFrame ( this.run.bind ( this ) );
+		window.requestAnimationFrame ( this.run.bind ( this, ticker ) );
 	}
 
 }
