@@ -6,6 +6,8 @@ export class EffectObject extends SpriteObject {
 
     constructor (image, pointValue) {
         super (image);
+        this.sprite.scale.x = 0.3; // Scale using dpi dependent units in the future
+        this.sprite.scale.y = 0.3;
         this.pointValue = 0;
 
         // effect would be public.

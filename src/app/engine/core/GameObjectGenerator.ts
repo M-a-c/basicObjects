@@ -1,5 +1,5 @@
 import { MagnifyEffect } from '../effect/MagnifyEffect';
-// import { MinifyEffect } from '../effect/MinifyEffect';
+import { MinifyEffect } from '../effect/MinifyEffect';
 
 
 export class GameObjectGenerator {
@@ -16,14 +16,23 @@ export class GameObjectGenerator {
         // Save the class name into the types array
         this.types.push ( spriteObject );
     }
+    
+    public getGameObject ( type ) {
+        // Switch between types
+        switch ( type ) {
+            case "MagnifyEffect":
+                return new MagnifyEffect ();
+            case "MinifyEffect":
+                return new MinifyEffect ();
+        }
+    }
 
     // Returns an initialized spriteObject randomly
     public nextObject () {
         // Get a random number within the domain of the types list
-        // let rand = Math.floor ( Math.random () * this.types.length );
+        let rand = Math.floor ( Math.random () * this.types.length );
         // Return a random object
-        return new MagnifyEffect ();
-        // return window [ this.types [ rand ] ];
+        return new this.getGameObject ( this.types [ rand ] );
     }
 
 }
