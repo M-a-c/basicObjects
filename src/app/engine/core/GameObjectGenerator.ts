@@ -16,13 +16,13 @@ export class GameObjectGenerator {
         // Save the class name into the types array
         this.types.push ( spriteObject );
     }
-    
+
     public getGameObject ( type ) {
         // Switch between types
         switch ( type ) {
-            case "MagnifyEffect":
+            case 'MagnifyEffect':
                 return new MagnifyEffect ();
-            case "MinifyEffect":
+            case 'MinifyEffect':
                 return new MinifyEffect ();
         }
     }

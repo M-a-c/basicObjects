@@ -52,5 +52,5 @@ export class AppComponent implements AfterViewInit {
 	//     // you.rotation += 0.1 * delta;
 	//     you.x = app.renderer.plugins.interaction.mouse.global.x;
 	// });
-	
+
 }

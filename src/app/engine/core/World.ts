@@ -23,14 +23,14 @@ export class World extends PIXI.Container {
         // Make stage interactive and link mouse events
         this.interactive = true;
         this.mouse = { x: 0 };
-        this.on ( "mousemove", this.mouseMove.bind ( this ) );
+        this.on ( 'mousemove', this.mouseMove.bind ( this ) );
     }
-    
+
     public mouseMove ( event ) {
         this.mouse.x = event.data.getLocalPosition ( this );
         this.mouse.x = event.data.global.x;
     }
-    
+
     // Initializes the player object
     public initializePlayerObject () {
         this.player = new PlayerObject ();
@@ -48,7 +48,9 @@ export class World extends PIXI.Container {
             // Set object properties
             // randomObject.sprite.y = this.view.height;
             randomObject.sprite.y = 0 - randomObject.sprite.height;
-            randomObject.sprite.x = Math.floor ( ( this.view.width - randomObject.sprite.width ) * Math.random () );
+            randomObject.sprite.x = Math.floor (
+                ( this.view.width - randomObject.sprite.width ) * Math.random ()
+            );
             randomObject.sprite.vx = 0;
             randomObject.sprite.vy = 0;
             // Add said object to main container
@@ -91,10 +93,10 @@ export class World extends PIXI.Container {
             // Update and render onto the canvas
             ticker.add ( function ( delta ) {
                 that.update ();
-            });   
+            });
         }
         // Render next frame when available
         window.requestAnimationFrame ( this.run.bind ( this, ticker ) );
     }
-    
+
 }
