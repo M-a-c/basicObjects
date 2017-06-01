@@ -66,11 +66,40 @@ export class World extends PIXI.Container {
             child.y += 3;
             child.x += child.vx;
         });
+        // Save reference to class instance
+        var that = this;
+        // Filter through children objects and remove all objects that are off screen
+        this.objectChildren = this.objectChildren.filter ( ( obj ) => {
+            return obj.y < that.view.height;
+        });
+        // Filter through the children objects in the stage and remove ones that are off screen
+        this.children = this.children.filter ( ( obj ) => {
+            return obj.y < that.view.height;
+        });
+        // Run collision detection, and remove all coins that collide with player
+        this.collision ( this.player ).map ( ( obj ) => {
+            that.score++;
+            that.children = that.children.filter ( ( child ) => {
+                return child != obj;
+            });
+            that.objectChildren = that.objectChildren.filter ( ( child ) => {
+                return child != obj;
+            });
+        });
     }
 
     // Loops through and checks for collisions with target, returns collision list
     public collision ( target ) {
-
+        // Return all the colliding coins
+        return this.objectChildren.filter ( ( obj ) => {
+            // Collision detection using bounding box method
+            let a = target.sprite;
+            let b = obj;
+            return a.x + a.width > b.x && 
+                   a.x < b.x + b.width &&
+                   a.y + a.height > b.height &&
+                   a.y < b.y + b.height;
+        });
     }
 
     // Contains main game loop
