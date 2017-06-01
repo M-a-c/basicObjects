@@ -2,7 +2,7 @@ export const ASSET = {
     MagnifyEffect : 'assets/images/mag.png',
     MinifyEffect : 'assets/images/min.png',
     PlayerObject : 'assets/images/pig.png',
-    DeathEffect : 'assets/images/DeathObject.png',
+    DeathEffect : 'assets/images/deathObject.png',
     DivideEffect : 'assets/images/divide.png',
     ReverseDirectionEffect : 'assets/images/reverseDown.png',
 

@@ -16,6 +16,15 @@ export class World extends PIXI.Container {
         this.generator = new GameObjectGenerator ();
         this.generator.register ( 'MagnifyEffect' );
         this.generator.register ( 'MinifyEffect' );
+        this.generator.register ( 'AllIndestructibleEffect' );
+        this.generator.register ( 'Block' );
+        this.generator.register ( 'DeathEffect' );
+        this.generator.register ( 'DivideEffect' );
+        this.generator.register ( 'MultiplyEffect' );
+        this.generator.register ( 'ReverseDirectionEffect' );
+        this.generator.register ( 'SingleIndestructibleEffect' );
+        this.generator.register ( 'SlowTimeEffect' );
+        this.generator.register ( 'SpeedUpTimeEffect' );
         // Initialize the player
         this.initializePlayerObject ();
         // Initialize game object array
