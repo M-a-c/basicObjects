@@ -1,9 +1,10 @@
 import * as PIXI from 'pixi.js';
+import { ASSET } from './Assets';
 
 export class SpriteObject {
 
 // image ? : "X"
-    constructor ( imageURL = '../../../assets/images/pig.png' ) {
+    constructor ( imageURL = ASSET.PlayerObject ) {
         this.sprite = PIXI.Sprite.fromImage ( imageURL );
     }
 
